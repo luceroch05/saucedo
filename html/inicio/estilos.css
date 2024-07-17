@@ -1,0 +1,257 @@
+body {
+    font-family: "Nunito";
+    margin: 0;
+    padding: 0;
+    font-size: 25px;
+}
+
+header {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    
+}
+.header-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.image-header {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.header-icons {
+    position: absolute;
+    top: 40px; /* Ajusta la posición vertical según necesites */
+    right: 80px; /* Ajusta la posición horizontal según necesites */
+}
+
+.header-icons a {
+    margin-left: 10px; /* Espacio entre los íconos si lo necesitas */
+}
+
+.header-icons i {
+    font-size: 24px; /* Tamaño de los íconos */
+}
+
+.logito {
+    position: absolute;
+    left: 10px; /* Ajusta según sea necesario */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.logito img {
+    height: 80px;
+    width: 150px;
+}
+
+.header-title {
+    flex: 1;
+    text-align: center; /* Centra el texto dentro del div */
+}
+
+.header-title h1 {
+    font-size: 50px;
+    color: white;
+    margin: 0; /* Elimina el margen */
+}
+
+nav {
+    background: #5483B3;
+}
+
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    color: bisque;
+}
+
+.menu-item {
+    position: relative;
+}
+.menu-item i {
+    margin-right: 8px; /* Espacio entre el icono y el texto */
+}
+
+.menu-item a {
+    display: block;
+    padding: 14px 20px;
+    color: aliceblue;
+    text-decoration: none;
+    font-family: "nunito", sans-serif;
+    font-size: 25px;
+}
+
+.menu-item a:hover {
+    background-color: rgb(111, 167, 231);
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    background-color: brown;
+    top: 100%;
+    left: 0;
+    box-shadow: 0px 8px 16px;
+    z-index: 1;
+}
+.submenu {
+    display: none;
+    position: absolute;
+    background-color: #b4edf8c4; /* Color de fondo del submenú */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sombra para el submenú */
+    z-index: 1;
+    padding: 10px 0;
+    width: 200px; /* Ancho del submenú */
+    list-style-type: none; /* Quita los estilos de lista */
+    text-align: left; /* Alinea el texto del submenú a la izquierda */
+}
+
+.dropdown:hover .submenu {
+    display: block;
+}
+
+.submenu-item {
+    margin: 0;
+}
+
+.submenu-item a {
+    padding: 10px;
+    display: block;
+    color: #333;
+    text-decoration: none;
+}
+
+.submenu-item a:hover {
+    background-color: #f5f5f5ca; /* Color de fondo al pasar el mouse */
+}
+
+
+/* carrusel de imagenes */
+
+.slider {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+  
+    overflow: hidden;
+    
+  }
+  
+  .slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .slide {
+    min-width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .slide img {
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+  }
+  
+
+  .slide-content h2 {
+    margin: 0;
+    font-size: 20px;
+  }
+  
+  .slide-content p {
+    font-size: 14px;
+  }
+  
+  .btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .btn:hover {
+    background-color: #e60c29;
+  }
+  
+  button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 10px;
+  }
+  
+  .prev {
+    left: 10px;
+  }
+  
+  .next {
+    right: 10px;
+  }
+  .prev,.next{
+    border-radius: 10px;
+  }
+
+ /* Estilos responsivos */
+@media (max-width: 768px) {
+    .header-icons {
+        top: 10px;
+        right: 10px;
+    }
+    
+    nav ul.menu {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul.menu li.menu-item {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-icons {
+        position: static;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .header-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .image-header {
+        width: 100%;
+    }
+
+    nav ul.menu {
+        padding: 0 20px;
+    }
+
+    nav ul.menu li.menu-item a {
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    .slider button {
+        display: none; /* Ocultar botones en pantallas pequeñas */
+    }
+}
