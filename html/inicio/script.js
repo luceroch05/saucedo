@@ -35,3 +35,18 @@ document.addEventListener('DOMContentLoaded', function() {
     setInterval(slideNext, 7000); // Cambiar cada 5 segundos (5000 milisegundos)
   });
   
+
+  // carrusel de productos
+  const carSld = document.getElementById("carrusel-slides");
+const carSlds = document.querySelector(".slidep");
+const carRight = document.querySelector(".btn-next");
+const carLeft = document.querySelector(".btn-prev");
+let direction;
+
+carRight.onclick = function () {
+  carSld.scrollLeft += 220;  
+};
+
+carLeft.onclick = function () {
+  carSld.scrollLeft -= 220;
+};

@@ -206,6 +206,95 @@ nav {
   .prev,.next{
     border-radius: 10px;
   }
+/* carrusel de iconos productos */
+.sliderproductos {
+    width: calc(200px * 4 + 30px * 4); /* card * 4 + margin * 4 */
+    text-align: center;
+    position: relative;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  .slidesp {
+    width: 100%; /* card * 4 + margin * 4 */
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    transition: all .5s ease;
+  }
+  .slidesp .slidep {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    width: 200px;
+    height: 200px;
+    margin-right: 15px;
+    margin-left: 15px;
+    border-radius: 10px;
+    background: #eee;
+    transition: transform 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    transform: translateX(0px);
+  }
+  
+  .sliderproductos .btn-prev,
+  .sliderproductos .btn-next{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: white;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(17,17,17,.15);
+    cursor: pointer;
+  }
+  .sliderproductos .btn-prev{
+    left: -15px;
+  }
+  .sliderproductos .btn-next{
+    right: -15px;
+  }
+  .sliderproductos .btn-prev:after,
+  .sliderproductos .btn-next:after{
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-top: 1px solid red;
+    border-right: 1px solid red;
+  }
+  .sliderproductos .btn-prev:after{
+    left: 50%;
+    top: 50%;
+    transform-origin: top right;
+    transform: rotate(-135deg) translate(100%, -100%);
+  }
+  .sliderproductos .btn-next:after{
+        left: 50%;
+      top: 50%;
+      transform-origin: top right;
+        transform: rotate(45deg) translate(-25%, 50%);
+  }
+  .carrusel-wrap .bx-controls .bx-controls-direction > .btn-prev.invisible,
+  .carrusel-wrap .bx-controls .bx-controls-direction > .btn-next.invisible {
+      opacity: 0;
+      pointer-events: none;
+  }
+  
+
+
+
+
+
+
+
+
+
 
  /* Estilos responsivos */
 @media (max-width: 768px) {
