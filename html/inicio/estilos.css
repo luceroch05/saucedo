@@ -1,66 +1,75 @@
+/* Estilos generales */
 body {
-    font-family: "Nunito";
+    font-family: "Nunito", sans-serif;
     margin: 0;
     padding: 0;
-    font-size: 25px;
+    font-size: 18px;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+/* Encabezado */
+header {
+    background-color: #333;
+    color: #fff;
+    background-image: url('imagenes/headerimg.png'); /* Ruta corregida */
+    background-size: cover; /* Para que la imagen cubra todo el header */
+    background-position: center; /* Centrar la imagen */
+    height: 100px; /* Ajusta la altura según sea necesario */
+    position: relative;
+
 }
 
-header {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    
-}
 .header-wrapper {
-    position: relative;
-    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 100%; /* Para que la altura ocupe todo el header */
+
 }
 
 .image-header {
-    width: 100%;
+
+    max-width: 150px;
     height: auto;
-    display: block;
 }
 
 .header-icons {
-    position: absolute;
-    top: 40px; /* Ajusta la posición vertical según necesites */
-    right: 80px; /* Ajusta la posición horizontal según necesites */
+    display: flex;
+    gap: 10px;
+    justify-content: end;
+    align-items: end;
 }
 
 .header-icons a {
-    margin-left: 10px; /* Espacio entre los íconos si lo necesitas */
-}
-
-.header-icons i {
-    font-size: 24px; /* Tamaño de los íconos */
-}
-
-.logito {
-    position: absolute;
-    left: 10px; /* Ajusta según sea necesario */
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.logito img {
-    height: 80px;
-    width: 150px;
+    color: #fff;
+    font-size: 24px;
+    transition: color 0.3s;
 }
 
 .header-title {
-    flex: 1;
-    text-align: center; /* Centra el texto dentro del div */
+    text-align: center;
+    margin: 0;
+}
+ 
+.header-icons a:hover {
+    color: #3498db;
 }
 
 .header-title h1 {
-    font-size: 50px;
-    color: white;
-    margin: 0; /* Elimina el margen */
+
+    font-size: 36px;
+    margin: 0;
+    text-align: center;
 }
 
+
+/* Navegación */
 nav {
-    background: #5483B3;
+    background-color: #5483B3;
 }
 
 .menu {
@@ -68,123 +77,74 @@ nav {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: space-around;
-    color: bisque;
-}
-
-.menu-item {
-    position: relative;
-}
-.menu-item i {
-    margin-right: 8px; /* Espacio entre el icono y el texto */
+    justify-content: center;
+    gap: 20px;
 }
 
 .menu-item a {
     display: block;
     padding: 14px 20px;
-    color: aliceblue;
+    color: #fff;
     text-decoration: none;
-    font-family: "nunito", sans-serif;
-    font-size: 25px;
+    font-size: 18px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .menu-item a:hover {
-    background-color: rgb(111, 167, 231);
+    background-color: #111;
+    color: #3498db;
 }
 
 .submenu {
     display: none;
     position: absolute;
-    background-color: brown;
-    top: 100%;
-    left: 0;
-    box-shadow: 0px 8px 16px;
-    z-index: 1;
-}
-.submenu {
-    display: none;
-    position: absolute;
-    background-color: #b4edf8c4; /* Color de fondo del submenú */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sombra para el submenú */
-    z-index: 1;
+    background-color: #333;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     padding: 10px 0;
-    width: 200px; /* Ancho del submenú */
-    list-style-type: none; /* Quita los estilos de lista */
-    text-align: left; /* Alinea el texto del submenú a la izquierda */
+    list-style: none;
+    text-align: left;
+    margin-top: 10px;
+    border-radius: 5px;
 }
 
 .dropdown:hover .submenu {
     display: block;
 }
 
-.submenu-item {
-    margin: 0;
-}
-
 .submenu-item a {
-    padding: 10px;
-    display: block;
-    color: #333;
+    padding: 10px 20px;
+    color: #fff;
     text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
 }
 
 .submenu-item a:hover {
-    background-color: #f5f5f5ca; /* Color de fondo al pasar el mouse */
+    background-color: #444;
 }
-
-
-/* carrusel de imagenes */
-
+/* Carrusel de imágenes */
 .slider {
     position: relative;
     width: 100%;
-    max-width: 100%;
-  
     overflow: hidden;
-    
-  }
-  
-  .slides {
+}
+
+.slides {
     display: flex;
     transition: transform 0.5s ease-in-out;
-  }
-  
-  .slide {
+}
+
+.slide {
     min-width: 100%;
-    overflow: hidden;
     position: relative;
-  }
-  
-  .slide img {
+}
+
+.slide img {
     width: 100%;
     height: auto;
-    vertical-align: middle;
-  }
-  
+}
 
-  .slide-content h2 {
-    margin: 0;
-    font-size: 20px;
-  }
-  
-  .slide-content p {
-    font-size: 14px;
-  }
-  
-  .btn {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 5px 10px;
-    background-color: #3498db;
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  .btn:hover {
-    background-color: #e60c29;
-  }
-  
-  button {
+button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -194,6 +154,7 @@ nav {
     cursor: pointer;
     font-size: 20px;
     padding: 10px;
+<<<<<<< HEAD
   }
   
   .prev {
@@ -295,52 +256,68 @@ nav {
 
 
 
+=======
+    border-radius: 50%;
+    transition: background 0.3s;
+}
 
- /* Estilos responsivos */
+button:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    font-family: 'Nunito', sans-serif;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+>>>>>>> refs/remotes/origin/master
+
 @media (max-width: 768px) {
-    .header-icons {
-        top: 10px;
-        right: 10px;
+    .header-wrapper {
+        flex-direction: column;
+        text-align: center;
     }
-    
-    nav ul.menu {
+
+    .header-icons {
+        margin-top: 10px;
+    }
+
+    .menu {
         flex-direction: column;
         align-items: center;
+        gap: 10px;
     }
 
-    nav ul.menu li.menu-item {
-        margin-right: 0;
-        margin-bottom: 10px;
+    .slider button {
+        display: none;
     }
 }
 
 @media (max-width: 480px) {
-    .header-icons {
-        position: static;
-        text-align: center;
-        margin: 10px 0;
+    .header-title h1 {
+        font-size: 24px;
     }
 
-    .header-wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    .menu-item a {
+        font-size: 16px;
     }
 
-    .image-header {
-        width: 100%;
-    }
-
-    nav ul.menu {
-        padding: 0 20px;
-    }
-
-    nav ul.menu li.menu-item a {
-        font-size: 18px;
-        padding: 10px;
-    }
-
-    .slider button {
-        display: none; /* Ocultar botones en pantallas pequeñas */
+    footer {
+        font-size: 12px;
     }
 }
