@@ -8,16 +8,16 @@ body {
     color: #333;
     line-height: 1.6;
 }
+
 /* Encabezado */
 header {
     background-color: #333;
     color: #fff;
-    background-image: url('html/inicio/imagenes/headerimg.png'); /* Ruta corregida */
-    background-size: cover; /* Para que la imagen cubra todo el header */
-    background-position: center; /* Centrar la imagen */
-    height: 100px; /* Ajusta la altura según sea necesario */
+    background-image: url('../assets/images/headerimg.png');
+    background-size: cover;
+    background-position: center;
+    height: 100px;
     position: relative;
-
 }
 
 .header-wrapper {
@@ -27,14 +27,7 @@ header {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-    height: 100%; /* Para que la altura ocupe todo el header */
-
-}
-
-.image-header {
-
-    max-width: 150px;
-    height: auto;
+    height: 100%;
 }
 
 .header-icons {
@@ -50,22 +43,9 @@ header {
     transition: color 0.3s;
 }
 
-.header-title {
-    text-align: center;
-    margin: 0;
-}
- 
 .header-icons a:hover {
     color: #3498db;
 }
-
-.header-title h1 {
-
-    font-size: 36px;
-    margin: 0;
-    text-align: center;
-}
-
 
 /* Navegación */
 nav {
@@ -122,24 +102,12 @@ nav {
 .submenu-item a:hover {
     background-color: #444;
 }
-/* bienvenido */
-body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    font-family: Arial, sans-serif;
-}
 
-.background {
-    background-image: url('mecanica.webp');
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Bienvenida */
+.container {
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
 }
 
 .bienvenida {
@@ -164,6 +132,7 @@ body, html {
 .buttons {
     display: flex;
     gap: 10px;
+    justify-content: center;
 }
 
 .buttons a {
@@ -178,10 +147,11 @@ body, html {
 .buttons a:hover {
     background-color: #555;
 }
-/*INDEX PRODUCTOS */
+
+/* Productos */
 .productos {
     padding: 20px;
-    background-color: #f9f9f9;
+    background-color: #dbdbdb;
 }
 
 .productos h2 {
@@ -201,7 +171,7 @@ body, html {
 .carousel-wrapper {
     position: relative;
     width: 100%;
-    max-width: 800px; /* Ajusta según sea necesario */
+    max-width: 800px;
     margin: auto;
 }
 
@@ -209,24 +179,18 @@ body, html {
     display: flex;
 }
 
-.card {
-    padding: 10px;
-    box-sizing: border-box;
-    width: 100%;
-}
-
 .card img {
     width: 100%;
 }
 
 .slick-prev, .slick-next {
-    background: #007bff;
+    background: #000; /* Cambié el color a negro para mejor visibilidad */
     border: none;
     color: #fff;
     border-radius: 50%;
     width: 40px;
     height: 40px;
-    font-size: 18px;
+    font-size: 24px; /* Aumenta el tamaño de fuente para la flecha */
     text-align: center;
     line-height: 40px;
     cursor: pointer;
@@ -234,27 +198,84 @@ body, html {
     top: 50%;
     transform: translateY(-50%);
     z-index: 10;
+    transition: background 0.3s ease; /* Transición suave para el cambio de color */
+    opacity: 0.75; /* Opacidad inicial para que sean visibles pero no intrusivas */
+}
+
+.slick-prev:hover, .slick-next:hover {
+    background: #333; /* Color al hacer hover */
+    opacity: 1; /* Opacidad completa al hacer hover */
 }
 
 .slick-prev {
-    left: 10px;
+    left: -50px; /* Ajusta según sea necesario */
 }
 
 .slick-next {
-    right: 10px;
+    right: -50px; /* Ajusta según sea necesario */
 }
 
 .slick-prev:before, .slick-next:before {
-    content: '←'; /* O usa un ícono adecuado */
-    font-size: 20px;
+    content: '';
+    font-size: 0;
+}
+
+.slick-prev::after {
+    content: '<';
+    font-size: 24px;
     color: #fff;
 }
 
-.slick-next:before {
-    content: '→'; /* O usa un ícono adecuado */
+.slick-next::after {
+    content: '>';
+    font-size: 24px;
+    color: #fff;
 }
 
+/* Estilos para los botones "Ver más" */
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 0 10px; /* Añade espacio entre las tarjetas */
+    height: 100%; /* Asegura que todas las tarjetas tengan la misma altura */
+}
 
+.card img {
+    max-width: 100%;
+    margin-bottom: 20px; /* Espacio entre la imagen y el contenido */
+}
+
+.card h3 {
+    margin-bottom: 10px; /* Espacio entre el título y la descripción */
+}
+
+.card p {
+    flex-grow: 1; /* Empuja el botón hacia abajo */
+}
+
+.card a {
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.card a:hover {
+    background-color: #555;
+}
+
+/* Ajusta el contenedor del carrusel */
+.carousel {
+    display: flex;
+    padding-bottom: 20px; /* Añade espacio inferior para separar el carrusel del contenido siguiente */
+}
 
 @media (max-width: 768px) {
     .header-wrapper {
@@ -272,7 +293,7 @@ body, html {
         gap: 10px;
     }
 
-    .slider button {
+    .slick-prev, .slick-next {
         display: none;
     }
 }
