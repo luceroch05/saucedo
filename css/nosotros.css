@@ -1,0 +1,109 @@
+/* Estilos generales del main */
+s
+main {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+/* Estilo para la sección hero */
+.hero {
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.5), /* Color negro con opacidad */
+        rgba(0, 0, 0, 0.5) /* Color negro con opacidad */
+    ), url('../assets/images/bienvenida.jpg'); /* Ruta a tu imagen de fondo */
+    background-size: cover; /* Asegúrate de que la imagen cubra toda la sección */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    color: #ffffff; /* Color del texto */
+    padding: 60px 20px;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 40px;
+}
+.hero h1 {
+    font-size: 3em;
+    margin: 0;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+/* Estilo para la sección sobre nosotros */
+.about {
+    background: #ffffff;
+    padding: 40px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about h2 {
+    font-size: 2.5em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.about p {
+    font-size: 1.2em;
+    color: #666;
+    line-height: 1.6;
+    text-align: center;
+    margin: 0;
+}
+
+/* Estilo para la sección de equipo */
+.team {
+    padding: 40px 20px;
+}
+
+.team h2 {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: #333;
+}
+
+.team-member {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.team-member img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.team-member h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin: 10px 0;
+    font-weight: 700;
+}
+
+.team-member p {
+    font-size: 1.1em;
+    color: #666;
+}

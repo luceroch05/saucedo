@@ -450,3 +450,88 @@ footer {
 }
 
 
+@media (max-width: 1024px) and (min-width: 769px) {
+    .menu {
+        flex-direction: column;
+    }
+
+    .menu-item {
+        margin-bottom: 10px;
+    }
+
+    .menu-item a {
+        padding: 15px;
+    }
+
+   nav{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+    .menu {
+        flex-direction: column; /* Column layout for tablets */
+    }
+
+    .menu-item {
+        margin-bottom: 10px; /* Space between items */
+    }
+
+    .menu-item a {
+        padding: 15px; /* Larger padding */
+    }
+
+    nav {
+        flex-direction: column; /* Ensure column layout in nav */
+        align-items: flex-start;
+    }
+}
+
+/* Responsive Styles for mobile devices */
+@media (max-width: 768px) {
+    .menu {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu-item {
+        margin-bottom: 10px; /* Space between items */
+    }
+
+    .menu-item a {
+        padding: 15px;
+        text-align: left; /* Align text to the left */
+    }
+
+    .menu-item:hover .submenu {
+        display: block; /* Show submenu on hover */
+    }
+
+    nav {
+        flex-direction: column; /* Column layout for mobile */
+        align-items: flex-start;
+    }
+
+    .logo img {
+        max-width: 120px; /* Reduce logo size */
+    }
+
+    .carousel {
+        flex-direction: column; /* Stack carousel items vertically */
+    }
+
+    .card {
+        width: 100%; /* Full width for cards */
+        box-sizing: border-box;
+    }
+
+    .slick-prev, .slick-next {
+        display: block; /* Show navigation arrows */
+        width: 30px; /* Adjust size */
+        height: 30px; /* Adjust size */
+        background: rgba(0, 0, 0, 0.5); /* Background color for visibility */
+        border-radius: 50%; /* Make arrows circular */
+    }
+}
