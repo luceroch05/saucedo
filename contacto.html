@@ -17,6 +17,7 @@
 
 </head>
 <body>
+  
     <nav>
         <div class="nav-wrapper">
             <a href="index.html" class="logo">
@@ -26,7 +27,7 @@
                 <li class="menu-item"><a href="index.html"><i class="fa-solid fa-house"></i>Inicio</a></li>
                 <li class="menu-item"><a href="nosotros.html"><i class="fa-solid fa-users"></i>Nosotros</a></li>
                 <li class="menu-item dropdown">
-                    <a href="productos/productos.html"><i class="fa-solid fa-gear"></i>Productos</a>
+                    <a href="productos.html"><i class="fa-solid fa-gear"></i>Productos</a>
                     <ul class="submenu">
                         <li class="submenu-item"><a href="#">Accesorios de gasolina</a></li>
                         <li class="submenu-item"><a href="#">Accesorios GLP</a></li>
@@ -35,8 +36,8 @@
                         <li class="submenu-item"><a href="#">Sensores de nivel</a></li>
                     </ul>
                 </li>
-                <li class="menu-item"><a href="servicios/servicios.html"><i class="fa-solid fa-taxi"></i>Servicio</a></li>
-                <li class="menu-item"><a href="contacto/contacto.html"><i class="fa-solid fa-envelope"></i>Contacto</a></li>
+                <li class="menu-item"><a href="servicios.html"><i class="fa-solid fa-taxi"></i>Servicio</a></li>
+                <li class="menu-item"><a href="contacto.html"><i class="fa-solid fa-envelope"></i>Contacto</a></li>
             </ul>
             <div class="nav-icons">
                 <a href="login.html" class="nav-icon"><i class="fa-solid fa-user"></i></a>
@@ -46,7 +47,38 @@
     </nav>
    
 
-
+    <main>
+        <section class="contacto">
+            <div class="contact-form-wrapper">
+                <h2>Contáctanos</h2>
+                <p>Estamos aquí para ayudarte. Completa el formulario a continuación y nos pondremos en contacto contigo lo antes posible.</p>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" placeholder="Tu correo electrónico" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Asunto</label>
+                        <input type="text" id="subject" name="subject" placeholder="Asunto" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensaje</label>
+                        <textarea id="message" name="message" placeholder="Tu mensaje" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Enviar Mensaje</button>
+                    </div>
+                </form>
+            </div>
+            <div class="map-wrapper">
+                <h2>Ubicación</h2>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d580.2872501823266!2d-77.04294897771261!3d-11.92652731289081!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105d15f46a80501%3A0x4220bbf2adfad06e!2sBEDINI%20MULTISERVICIO%20AUTOMOTRIZ!5e0!3m2!1ses!2spe!4v1722042888194!5m2!1ses!2spe" width="300" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>            </div>
+        </section>
+    </main>
 
 
 
