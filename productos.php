@@ -18,33 +18,11 @@
 </head>
 <body>
   
-    <nav>
-        <div class="nav-wrapper">
-            <a href="index.html" class="logo">
-                <img src="assets/images/logo.png" alt="CYR Motors Logo">
-            </a>
-            <ul class="menu">
-                <li class="menu-item"><a href="index.html"><i class="fa-solid fa-house"></i>Inicio</a></li>
-                <li class="menu-item"><a href="nosotros.html"><i class="fa-solid fa-users"></i>Nosotros</a></li>
-                <li class="menu-item dropdown">
-                    <a href="productos.html"><i class="fa-solid fa-gear"></i>Productos</a>
-                    <ul class="submenu">
-                        <li class="submenu-item"><a href="#">Accesorios de gasolina</a></li>
-                        <li class="submenu-item"><a href="#">Accesorios GLP</a></li>
-                        <li class="submenu-item"><a href="#">Accesorios GNV</a></li>
-                        <li class="submenu-item"><a href="#">Riel de inyectores</a></li>
-                        <li class="submenu-item"><a href="#">Sensores de nivel</a></li>
-                    </ul>
-                </li>
-                <li class="menu-item"><a href="servicios.html"><i class="fa-solid fa-taxi"></i>Servicio</a></li>
-                <li class="menu-item"><a href="contacto.html"><i class="fa-solid fa-envelope"></i>Contacto</a></li>
-            </ul>
-            <div class="nav-icons">
-                <a href="login.html" class="nav-icon"><i class="fa-solid fa-user"></i></a>
-                <a href="cart.html" class="nav-icon"><i class="fa-solid fa-cart-shopping"></i></a>
-            </div>
-        </div>
-    </nav>
+   
+    <?php
+        require_once 'header.php';
+        cabecera();
+    ?>
    
     <main>
         <aside class="sidebar">
@@ -176,21 +154,12 @@
         </section>
     </main>
     </body>  
-  <footer>
-    <div class="footer-content">
-        <p>&copy; 2024 CYR Motors. Todos los derechos reservados.</p>
-        <div class="footer-links">
-            <a href="#">Política de Privacidad</a>
-            <a href="#">Términos y Condiciones</a>
-            <a href="#">Contacto</a>
-        </div>
-        <div class="footer-social">
-            <a href="https://www.facebook.com/CYRMotors" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://twitter.com/CYRMotors" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.instagram.com/CYRMotors" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        </div>
-    </div>
-</footer>
+    <?php
+        require_once 'footer.php';
+        pie();
+     ?>
+
+
     <script src="https://kit.fontawesome.com/68b419e4bb.js" crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
 </body>
