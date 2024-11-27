@@ -12,12 +12,12 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="assets/css/estilos.css">
 
 </head>
 <body>
     <?php
-    require_once 'header.php';
+    require_once 'views/includes/header.php';
     cabecera();
     
     ?>
@@ -161,7 +161,7 @@
 
 
   <?php
-  require_once 'footer.php';
+  require_once 'views/includes/footer.php';
   pie();
   ?>
  
