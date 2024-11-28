@@ -2,15 +2,17 @@
 
 
 namespace App\Models;
-include '../config/config.php';
+include '../utils/config.php';
 use PDOException;
 use PDO;
-use Exception;
+
 class EntityModel{
 protected $pdo;
 public $table='tbl';
 public function connect() {
     try {
+        echo "Host: " . DBHOST . ", Base de datos: " . DBNAME . ", Usuario: " . DBUSER;
+
         $this->pdo = new PDO("mysql:host=" . DBHOST . ";dbname=" . DBNAME, DBUSER, DBPASSWORD);
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         // Puedes comentar este mensaje una vez que confirmes que la conexión funciona.
