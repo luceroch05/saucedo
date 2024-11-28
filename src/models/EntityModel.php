@@ -3,12 +3,14 @@
 
 namespace App\Models;
 include '../utils/config.php';
+
 use PDOException;
 use PDO;
 
 class EntityModel{
 protected $pdo;
 public $table='tbl';
+
 public function connect() {
     try {
         echo "Host: " . DBHOST . ", Base de datos: " . DBNAME . ", Usuario: " . DBUSER;

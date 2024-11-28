@@ -3,7 +3,7 @@ namespace App\Controllers;
 require_once '../../../models/RepuestoModel.php';
 
 use App\Models\RepuestoModel;
-use App\Models\EntityModel;
+
 
 class RepuestoController {
     private $repuestoModel;
@@ -15,7 +15,7 @@ class RepuestoController {
     public function index() {
         $repuestos = $this->repuestoModel->all();
         var_dump($repuestos); // Verifica los datos aquí.
-        include '../views/admin/repuestos/index.php';
+        include '../views/admin/repuesto/index.php';
     }
 
 
