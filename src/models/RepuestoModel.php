@@ -4,7 +4,7 @@ use PDO;
 use App\Models\EntityModel;
 class RepuestoModel extends EntityModel{
     protected $pdo;
-    protected $table='repuesto';
+    public $table='repuesto';
     private int $id;
     private string $descripcion;
     private float $precio;

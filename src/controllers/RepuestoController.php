@@ -1,27 +1,33 @@
 <?php
 namespace App\Controllers;
-require_once '../../../models/RepuestoModel.php';
+
+
 
 use App\Models\RepuestoModel;
-
 
 class RepuestoController {
     private $repuestoModel;
 
+    // Constructor: Solo instanciamos el modelo una vez
     public function __construct() {
-        $this->repuestoModel = new RepuestoModel();
+        $this->repuestoModel = new RepuestoModel(); // Instanciamos el modelo en el constructor
     }
 
+    // Método para mostrar todos los repuestos
     public function index() {
-        $repuestos = $this->repuestoModel->all();
-        var_dump($repuestos); // Verifica los datos aquí.
-        include '../views/admin/repuesto/index.php';
-    }
+        // Crear una instancia del modelo
+        $repuestoModel = new RepuestoModel();
 
+        // Obtener los repuestos desde el modelo
+        $repuestos = $repuestoModel->all(); // Ajusta este método según tu modelo
+
+        // Pasar los repuestos a la vista
+        include '../../../views/admin/repuesto/index.php'; // O la ruta correcta
+    }
 
     // Método para mostrar el formulario de creación
     public function create() {
-        require_once __DIR__ . "/../views/admin/repuestos/create.php";
+        require_once __DIR__ . "/../views/admin/repuestos/create.php"; // Vista de creación
     }
 
     // Método para almacenar un nuevo repuesto
@@ -32,9 +38,9 @@ class RepuestoController {
         $stock = $post['stock'];
         $idcategoria = $post['idcategoria'];
 
-        // Inserción en la base de datos
+        // Inserción en la base de datos usando el modelo
         $this->repuestoModel->insert(
-            "descripcion = :descripcion, precio = :precio, stock = :stock, idcategoria = :idcategoria",
+            "descripcion, precio, stock, idcategoria", // Columns
             [
                 ':descripcion' => $descripcion,
                 ':precio' => $precio,
@@ -43,13 +49,17 @@ class RepuestoController {
             ]
         );
 
-        header('Location: /views/admin/repuestos'); // Redirecciona al listado
+        // Redirigir al listado de repuestos
+        header('Location: /admin/repuestos'); // Redireccionamos a la lista de repuestos
         exit;
     }
 
     // Método para mostrar el formulario de edición
     public function edit($id) {
+        // Obtener el repuesto a editar usando el método find()
         $repuesto = $this->repuestoModel->find('*', $id);
+        
+        // Incluir la vista de edición
         require_once __DIR__ . "/../views/admin/repuestos/edit.php";
     }
 
@@ -61,27 +71,31 @@ class RepuestoController {
         $stock = $post['stock'];
         $idcategoria = $post['idcategoria'];
 
-        // Actualización en la base de datos
+        // Actualización en la base de datos usando el modelo
         $this->repuestoModel->update(
-            "descripcion = :descripcion, precio = :precio, stock = :stock, idcategoria = :idcategoria",
+            "descripcion = :descripcion, precio = :precio, stock = :stock, idcategoria = :idcategoria", // Set columns
             [
                 ':descripcion' => $descripcion,
                 ':precio' => $precio,
                 ':stock' => $stock,
                 ':idcategoria' => $idcategoria,
-                ':id' => $id
+                ':id' => $id // Agregar el ID a los parámetros para la condición WHERE
             ],
-            $id
+            $id // El ID también se pasa como parámetro
         );
 
-        header('Location: /views/admin/repuestos'); // Redirecciona al listado
+        // Redirigir al listado de repuestos
+        header('Location: /admin/repuestos');
         exit;
     }
 
     // Método para eliminar un repuesto
     public function delete($id) {
+        // Eliminar el repuesto usando el método delete() del modelo
         $this->repuestoModel->delete($id);
-        header('Location: /views/admin/repuestos'); // Redirecciona al listado
+
+        // Redirigir al listado de repuestos
+        header('Location: /admin/repuestos');
         exit;
     }
 }
