@@ -2,7 +2,7 @@
 // Cargar el controlador de repuestos
 include '../src/controllers/RepuestoController.php';
 
-
+use App\Controllers\RepuestoController;
 // Obtener el controlador y la acción desde la URL, con valores por defecto
 $controller = isset($_GET['controller']) ? $_GET['controller'] : 'repuesto';
 $action = isset($_GET['action']) ? $_GET['action'] : 'index';

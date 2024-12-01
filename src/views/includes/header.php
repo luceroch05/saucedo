@@ -9,7 +9,7 @@
               <img src="assets/images/logo.png" alt="CYR Motors Logo">
           </a>
           <ul class="menu">
-              <li class="menu-item"><a href="index.php"><i class="fa-solid fa-house"></i>Inicio</a></li>
+              <li class="menu-item"><a href="home.php"><i class="fa-solid fa-house"></i>Inicio</a></li>
               <li class="menu-item"><a href="nosotros.php"><i class="fa-solid fa-users"></i>Nosotros</a></li>
               <li class="menu-item dropdown">
                   <a href="productos.php"><i class="fa-solid fa-gear"></i>Productos</a>
