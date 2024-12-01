@@ -1,9 +1,11 @@
 <?php
 namespace App\Models;
+
 use PDO;
 use App\Models\EntityModel;
+
 class RepuestoModel extends EntityModel{
-    protected $pdo;
+    
     public $table='repuesto';
     private int $id;
     private string $descripcion;
@@ -11,6 +13,9 @@ class RepuestoModel extends EntityModel{
     private int $stock;
     private int $idcategoria;
     private string $imagen;
+
+
+
 public function getId(){
     return $this->id;
 }

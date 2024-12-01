@@ -1,4 +1,45 @@
+<?php
 
+// Incluir la configuración de la base de datos
+require_once '../../../utils/config.php'; // Asegúrate de que la ruta sea correcta
+
+// Función para conectar a la base de datos
+function connectDB() {
+    try {
+        // Crear la cadena de conexión DSN (Data Source Name)
+        $dsn = "mysql:host=" . DBHOST . ";dbname=" . DBNAME . ";charset=" . DBCHARSET;
+        
+        // Crear una instancia de PDO
+        $pdo = new PDO($dsn, DBUSER, DBPASSWORD);
+        
+        // Configurar PDO para manejar errores
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        
+        return $pdo;
+    } catch (PDOException $e) {
+        // Mostrar detalles del error en caso de fallo de conexión
+        echo "Error al conectar a la base de datos: " . $e->getMessage();
+        exit;
+    }
+}
+
+// Función para obtener los repuestos desde la base de datos
+function getRepuestos() {
+    // Obtener la conexión a la base de datos
+    $pdo = connectDB();
+    
+    // Consulta SQL para obtener los repuestos
+    $sql = "SELECT * from repuesto";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+    
+    // Recuperar todos los resultados
+    return $stmt->fetchAll(PDO::FETCH_OBJ);
+}
+
+// Obtener los repuestos
+$repuestos = getRepuestos();
+?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -11,25 +52,18 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+<div class="d-flex">
     <div class="d-flex">
-        <!-- Sidebar -->
         <div class="sidebar">
             <?php include '../dashboard.php'; slidebar(); ?>
         </div>
-        
-        <!-- Contenido Principal -->
         <main class="content">
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <h2 class="h4">Listado de Repuestos</h2>
-                <a href="/views/admin/repuestos/create.php" class="btn btn-primary">Crear Nuevo Repuesto</a>
-            </div>
-
-            <!-- Mostrar error si lo hay -->
-        
-            <!-- Tabla de repuestos -->
+            <h2 class="h4">Listado de Repuestos</h2>
+            <a href="/src/views/admin/repuesto/create.php" class="btn btn-primary">Crear Nuevo Repuesto</a>
+            
             <div class="table-responsive">
-                <table class="table table-striped table-bordered">
-                    <thead class="table-dark">
+                <table class="table table-striped">
+                    <thead>
                         <tr>
                             <th>ID</th>
                             <th>Descripción</th>
@@ -41,43 +75,22 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php 
-                        
-
-                        require_once '../../../utils/autoload.php'; // Incluye el autoload
-                        
-                        // Obtiene la ruta solicitada
-                        $requestUri = $_SERVER['REQUEST_URI'];
-                        
-                        // Verifica si la ruta solicitada es para el listado de repuestos
-                        if ($requestUri == '/admin/repuestos') {
-                            // Si la ruta es correcta, se instancia el controlador y se llama al método index()
-                            $controller = new \App\Controllers\RepuestoController();
-                            $controller->index();  // Llama al método 'index' del controlador
-                        }
-                        
-                        
-
-
-
-                        if (!empty($repuestos)) : ?>
-                            <?php foreach ($repuestos as $item) : ?>
+                        <?php if (!empty($repuestos)): ?>
+                            <?php foreach ($repuestos as $item): ?>
                                 <tr>
-                                    <td><?= htmlspecialchars($item->getId()); ?></td>
-                                    <td><?= htmlspecialchars($item->getDescripcion()); ?></td>
-                                    <td><?= htmlspecialchars($item->getPrecio()); ?> PEN</td>
-                                    <td><?= htmlspecialchars($item->getStock()); ?></td>
-                                    <td><?= htmlspecialchars($item->getIdcategoria()); ?></td>
+                                    <td><?= htmlspecialchars($item->id_repuesto); ?></td>
+                                    <td><?= htmlspecialchars($item->descripcion); ?></td>
+                                    <td><?= htmlspecialchars($item->precio); ?> PEN</td>
+                                    <td><?= htmlspecialchars($item->stock); ?></td>
+                                    <td><?= htmlspecialchars($item->id_categoria); ?></td>
+                                    <td><img src="/assets/images/<?= htmlspecialchars($item->imagen); ?>" style="width:100px;"></td>
                                     <td>
-                                        <img src="/assets/images/<?= htmlspecialchars($item->getImagen()); ?>" alt="<?= htmlspecialchars($item->getDescripcion()); ?>" style="width: 100px; height: auto;">
-                                    </td>
-                                    <td>
-                                        <a href="/views/admin/repuestos/edit.php?id=<?= htmlspecialchars($item->getId()); ?>" class="btn btn-warning btn-sm">Editar</a>
-                                        <a href="/controllers/RepuestoController.php?action=delete&id=<?= htmlspecialchars($item->getId()); ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar este repuesto?')">Eliminar</a>
+                                        <a href="/src/views/admin/repuesto/edit.php?id=<?= htmlspecialchars($item->id); ?>" class="btn btn-warning btn-sm">Editar</a>
+                                        <a href="/src/controllers/RepuestoController.php?action=delete&id=<?= htmlspecialchars($item->id); ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Eliminar?')">Eliminar</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
-                        <?php else : ?>
+                        <?php else: ?>
                             <tr>
                                 <td colspan="7" class="text-center">No hay repuestos disponibles.</td>
                             </tr>

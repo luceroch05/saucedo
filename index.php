@@ -17,7 +17,7 @@
 </head>
 <body>
     <?php
-    require_once 'views/includes/header.php';
+    require_once 'src/views/includes/header.php';
     cabecera();
     
     ?>

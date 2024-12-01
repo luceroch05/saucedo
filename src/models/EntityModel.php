@@ -4,31 +4,36 @@ namespace App\Models;
 
 use PDO;
 use PDOException;
+require_once '../utils/config.php'; // Asegúrate de que la ruta sea correcta
 
 class EntityModel
 {
     protected $pdo;
-    public $table = 'tbl';  // Asegúrate de que este valor esté correctamente definido para cada subclase
+    public $table = 'repuesto';  // Asegúrate de que este valor esté correctamente definido para cada subclase
 
     // Constructor: solo establecer la conexión una vez
     public function __construct() {
-        require_once __DIR__ . '/../utils/config.php';
+        require_once '../utils/config.php'; // Asegúrate de que la ruta sea correcta
         $this->connect();
     }
 
     // Método para conectar a la base de datos
-    public function connect() {
+    function connect() {
         try {
-            // Se asume que DBHOST, DBNAME, DBUSER y DBPASSWORD están definidos en tu archivo config.php
-            echo "Intentando conectar a la base de datos...<br>";
-            if ($this->pdo === null) {
-                $this->pdo = new PDO("mysql:host=" . DBHOST . ";dbname=" . DBNAME, DBUSER, DBPASSWORD);
-                $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                echo "Conexión exitosa a la base de datos.<br>";
-            }
+            // Crear la cadena de conexión DSN (Data Source Name)
+            $dsn = "mysql:host=" . DBHOST . ";dbname=" . DBNAME . ";charset=" . DBCHARSET;
+            
+            // Crear una instancia de PDO
+            $pdo = new PDO($dsn, DBUSER, DBPASSWORD);
+            
+            // Configurar PDO para manejar errores
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            
+            return $pdo;
         } catch (PDOException $e) {
-            error_log("Error de conexión: " . $e->getMessage());  // Registra el error en el log
-            die("Error al conectar a la base de datos: " . $e->getMessage());
+            // Mostrar detalles del error en caso de fallo de conexión
+            echo "Error al conectar a la base de datos: " . $e->getMessage();
+            exit;
         }
     }
 
@@ -73,4 +78,4 @@ class EntityModel
         $stmt->execute([':id' => $id]);
     }
 }
-?>
+// Remove redundant closing tag

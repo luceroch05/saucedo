@@ -10,19 +10,19 @@ class RepuestoController {
 
     // Constructor: Solo instanciamos el modelo una vez
     public function __construct() {
-        $this->repuestoModel = new RepuestoModel(); // Instanciamos el modelo en el constructor
     }
 
     // Método para mostrar todos los repuestos
     public function index() {
-        // Crear una instancia del modelo
-        $repuestoModel = new RepuestoModel();
 
-        // Obtener los repuestos desde el modelo
-        $repuestos = $repuestoModel->all(); // Ajusta este método según tu modelo
-
-        // Pasar los repuestos a la vista
-        include '../../../views/admin/repuesto/index.php'; // O la ruta correcta
+        
+            $repuestoModel = new RepuestoModel(); // Instanciamos el modelo localmente
+            $repuestos = $repuestoModel->all();
+        
+            // Pasar los repuestos a la vista
+            include '../views/admin/repuesto/index.php';
+        
+        
     }
 
     // Método para mostrar el formulario de creación
