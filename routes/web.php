@@ -1,7 +1,6 @@
 <?php
 // Cargar el controlador de repuestos
-require_once '../src/controllers/RepuestoController.php';
-use App\Controllers\RepuestoController;
+include '../src/controllers/RepuestoController.php';
 
 
 // Obtener el controlador y la acción desde la URL, con valores por defecto

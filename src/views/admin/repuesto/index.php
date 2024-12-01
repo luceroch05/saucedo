@@ -1,45 +1,3 @@
-<?php
-
-// Incluir la configuración de la base de datos
-require_once '../../../utils/config.php'; // Asegúrate de que la ruta sea correcta
-
-// Función para conectar a la base de datos
-function connectDB() {
-    try {
-        // Crear la cadena de conexión DSN (Data Source Name)
-        $dsn = "mysql:host=" . DBHOST . ";dbname=" . DBNAME . ";charset=" . DBCHARSET;
-        
-        // Crear una instancia de PDO
-        $pdo = new PDO($dsn, DBUSER, DBPASSWORD);
-        
-        // Configurar PDO para manejar errores
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        
-        return $pdo;
-    } catch (PDOException $e) {
-        // Mostrar detalles del error en caso de fallo de conexión
-        echo "Error al conectar a la base de datos: " . $e->getMessage();
-        exit;
-    }
-}
-
-// Función para obtener los repuestos desde la base de datos
-function getRepuestos() {
-    // Obtener la conexión a la base de datos
-    $pdo = connectDB();
-    
-    // Consulta SQL para obtener los repuestos
-    $sql = "SELECT * from repuesto";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute();
-    
-    // Recuperar todos los resultados
-    return $stmt->fetchAll(PDO::FETCH_OBJ);
-}
-
-// Obtener los repuestos
-$repuestos = getRepuestos();
-?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -75,7 +33,10 @@ $repuestos = getRepuestos();
                         </tr>
                     </thead>
                     <tbody>
-                        <?php if (!empty($repuestos)): ?>
+                        <?php 
+                        require_once '../../../../routes/web.php';
+
+                        if (!empty($repuestos)): ?>
                             <?php foreach ($repuestos as $item): ?>
                                 <tr>
                                     <td><?= htmlspecialchars($item->id_repuesto); ?></td>

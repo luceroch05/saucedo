@@ -8,7 +8,7 @@ use App\Models\RepuestoModel;
 class RepuestoController {
     private $repuestoModel;
 
-    // Constructor: Solo instanciamos el modelo una vez
+    
     public function __construct() {
     }
 
